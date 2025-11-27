@@ -54,5 +54,80 @@
 <script>
 const searchInput=document.getElementById('search');const tabButtons=document.querySelectorAll('.tab-btn');const categories=document.querySelectorAll('.category');function showCategory(e){categories.forEach(t=>t.classList.remove('active')),tabButtons.forEach(t=>t.classList.remove('active')), "all"===e?categories.forEach(t=>t.classList.add('active')):document.getElementById(e+"-category").classList.add('active'),document.querySelector(`.tab-btn[data-category="${e}"]`).classList.add('active'),filterTables()}function filterTables(){const e=searchInput.value.toLowerCase(),t=document.querySelectorAll('.category.active table tbody');t.forEach(t=>{const a=t.querySelectorAll('tr');a.forEach(t=>{t.style.display=t.textContent.toLowerCase().includes(e)?"":"none"})})}tabButtons.forEach(e=>{e.addEventListener('click',()=>{showCategory(e.dataset.category)})}),searchInput.addEventListener('input',filterTables),showCategory('all');
 </script>
+<!-- Community Submission Section -->
+<div style="max-width: 700px; margin: 50px auto; padding: 25px; background: #f0f8ff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;">
+  <h2 style="color: #2c3e50; margin-top: 0;">🛸 Join the UFO Community</h2>
+  <p>Share your alien encounter or UFO sighting with fellow researchers!</p>
+  <form id="ufo-submission-form" style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px;">
+    <input type="email" id="user-email" placeholder="Your email (required)" required 
+           style="padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 16px;">
+    
+    <input type="file" id="user-image" accept="image/jpeg, image/png, image/jpg" required
+           style="padding: 8px; border: 1px dashed #3498db; border-radius: 6px; background: #e8f4fc;">
+
+    <button type="submit" 
+            style="padding: 12px; background: #3498db; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer;">
+      Submit Your Sighting
+    </button>
+  </form>
+  <p id="form-status" style="margin-top: 12px; min-height: 24px; font-weight: bold;"></p>
+</div>
+
+<script>
+document.getElementById('ufo-submission-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('user-email').value.trim();
+  const fileInput = document.getElementById('user-image');
+  const statusEl = document.getElementById('form-status');
+  
+  if (!fileInput.files[0]) {
+    statusEl.style.color = 'red';
+    statusEl.textContent = '⚠️ Please select an image.';
+    return;
+  }
+
+  const file = fileInput.files[0];
+  if (!file.type.match('image.*')) {
+    statusEl.style.color = 'red';
+    statusEl.textContent = '⚠️ Please upload an image file (JPEG/PNG).';
+    return;
+  }
+
+  // Show loading
+  statusEl.style.color = '#3498db';
+  statusEl.textContent = '📤 Uploading...';
+
+  // Convert image to base64
+  const reader = new FileReader();
+  reader.onload = async function() {
+    try {
+      const res = await fetch('/api/submit-sighting', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          image: reader.result // base64 string
+        })
+      });
+
+      const data = await res.json();
+      
+      if (res.ok) {
+        statusEl.style.color = 'green';
+        statusEl.textContent = '✅ Thank you! Your sighting has been submitted for review.';
+        document.getElementById('ufo-submission-form').reset();
+      } else {
+        throw new Error(data.error || 'Submission failed');
+      }
+    } catch (err) {
+      console.error(err);
+      statusEl.style.color = 'red';
+      statusEl.textContent = '❌ Failed to submit. Please try again.';
+    }
+  };
+  reader.readAsDataURL(file);
+});
+</script>
 </body>
 </html>
