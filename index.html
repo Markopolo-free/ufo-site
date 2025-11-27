@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UFO & Alien Directory</title>
+  <style>
+    :root{--primary:#2c3e50;--accent:#3498db;--light:#ecf0f1;--dark:#2c3e50;--gray:#95a5a6}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;margin:0;padding:0;background-color:#f9f9f9;color:#333}header{background:var(--primary);color:white;text-align:center;padding:2rem 1rem}h1{margin:0;font-size:2.2rem}.controls{text-align:center;padding:1rem;background:white;box-shadow:0 2px 5px rgba(0,0,0,.1)}#search{padding:.6rem;width:80%;max-width:500px;font-size:1rem;border:1px solid #ccc;border-radius:6px}.tabs{display:flex;justify-content:center;gap:1rem;margin-top:1rem;flex-wrap:wrap}.tab-btn{padding:.5rem 1rem;background:#e0e0e0;border:none;border-radius:6px;cursor:pointer;font-weight:bold;transition:background .3s}.tab-btn.active,.tab-btn:hover{background:var(--accent);color:white}.category{display:none;padding:2rem 1rem}.category.active{display:block}table{width:100%;max-width:1200px;margin:0 auto;border-collapse:collapse;background:white;box-shadow:0 2px 10px rgba(0,0,0,.05);border-radius:8px;overflow:hidden}th,td{padding:16px;text-align:left;border-bottom:1px solid #eee}th{background:var(--primary);color:white}tr:hover{background-color:#f5f9ff}img{width:80px;height:80px;object-fit:cover;border-radius:6px;border:1px solid #ddd}footer{text-align:center;padding:1.5rem;color:var(--gray);font-size:.9rem}@media(max-width:768px){th,td{padding:12px 8px;font-size:.9rem}img{width:60px;height:60px}}
+  </style>
+</head>
+<body>
+<header><h1>UFO & Alien Phenomena Directory</h1><p>Reported Tall Aliens, UAPs, and UFO Craft from Global Sightings</p></header>
+<div class="controls"><input type="text" id="search" placeholder="Search by name or description..." /><div class="tabs"><button class="tab-btn active" data-category="all">All</button><button class="tab-btn" data-category="tall-aliens">Tall Aliens</button><button class="tab-btn" data-category="uads">UADs/UAPs</button><button class="tab-btn" data-category="ufos">Classic UFOs</button></div></div>
+
+<div class="category active" id="tall-aliens-category">
+  <h2 style="text-align:center;color:#2980b9">Tall Alien Types</h2>
+  <table><thead><tr><th>Name</th><th>Description</th><th>Image</th></tr></thead><tbody>
+    <tr><td>Nordics</td><td>Blonde, blue-eyed humanoids (6–7 ft), often described as benevolent and spiritually advanced.</td><td><img src="nordics.jpg" alt="Nordics"></td></tr>
+    <tr><td>Tall Whites</td><td>Reported in Nevada; 7+ ft tall, pale skin, large eyes. Associated with military base encounters.</td><td><img src="tall-whites.jpg" alt="Tall Whites"></td></tr>
+    <tr><td>Reptilians (Tall)</td><td>6–9 ft scaly humanoids with vertical pupils; featured in conspiracy theories and ancient astronaut hypotheses.</td><td><img src="reptilians.jpg" alt="Reptilians"></td></tr>
+    <tr><td>Orions</td><td>Alleged extraterrestrials from Orion constellation; described as tall, muscular, sometimes with dark skin or red eyes.</td><td><img src="orions.jpg" alt="Orions"></td></tr>
+    <tr><td>Pleiadians</td><td>Blonde, tall humanoids from the Pleiades star cluster; said to monitor Earth’s spiritual evolution.</td><td><img src="pleiadians.jpg" alt="Pleiadians"></td></tr>
+  </tbody></table>
+</div>
+
+<div class="category" id="uads-category">
+  <h2 style="text-align:center;color:#2980b9">Unidentified Aerial Devices (UADs/UAPs)</h2>
+  <table><thead><tr><th>Name</th><th>Description</th><th>Image</th></tr></thead><tbody>
+    <tr><td>Tic Tac UAP</td><td>White, oblong object recorded by U.S. Navy pilots in 2004; exhibited hypersonic speeds with no visible propulsion.</td><td><img src="tic-tac.jpg" alt="Tic Tac UAP"></td></tr>
+    <tr><td>Black Triangle</td><td>Silent, massive triangular craft with lights at each corner; widely reported in Belgium (1989) and the U.S.</td><td><img src="black-triangle.jpg" alt="Black Triangle"></td></tr>
+    <tr><td>Phoenix Lights</td><td>V-shaped formation of lights over Arizona (1997); one of the largest mass sightings in U.S. history.</td><td><img src="phoenix-lights.jpg" alt="Phoenix Lights"></td></tr>
+    <tr><td>GoFast Object</td><td>U.S. Navy-released UAP (2015); fast-moving object over ocean, later analyzed in Pentagon reports.</td><td><img src="gofast.jpg" alt="GoFast"></td></tr>
+    <tr><td>Gimbal Object</td><td>Rotating UAP filmed by Navy jet; infrared footage shows smooth rotation inconsistent with conventional aircraft.</td><td><img src="gimbal.jpg" alt="Gimbal"></td></tr>
+  </tbody></table>
+</div>
+
+<div class="category" id="ufos-category">
+  <h2 style="text-align:center;color:#2980b9">Classic UFO Types</h2>
+  <table><thead><tr><th>Name</th><th>Description</th><th>Image</th></tr></thead><tbody>
+    <tr><td>Flying Saucer</td><td>Disc-shaped craft with dome; popularized after Kenneth Arnold’s 1947 sighting near Mount Rainier.</td><td><img src="flying-saucer.jpg" alt="Flying Saucer"></td></tr>
+    <tr><td>Cigar-shaped UFO</td><td>Elongated cylindrical craft, often with portholes; common in early 1900s–1950s reports.</td><td><img src="cigar-ufo.jpg" alt="Cigar UFO"></td></tr>
+    <tr><td>Orbs / Spheres</td><td>Glowing spherical objects that hover or dart unpredictably; frequent in modern night-vision footage.</td><td><img src="orbs.jpg" alt="Orbs"></td></tr>
+    <tr><td>Boomerang UFO</td><td>V- or boomerang-shaped craft, silent and massive; seen in Phoenix Lights and other global events.</td><td><img src="boomerang.jpg" alt="Boomerang"></td></tr>
+    <tr><td>Mothership</td><td>Enormous carrier craft capable of deploying smaller UFOs; described in multiple abduction and contactee accounts.</td><td><img src="mothership.jpg" alt="Mothership"></td></tr>
+  </tbody></table>
+</div>
+
+<footer>
+  <p>ℹ️ This directory compiles widely reported phenomena from UFOlogy, declassified military footage, and historical accounts. <br>
+  Images are illustrative or conceptual. For educational & research purposes.</p>
+  <p>Compiled: November 2025 | Hosted on GitHub Pages</p>
+</footer>
+
+<script>
+const searchInput=document.getElementById('search');const tabButtons=document.querySelectorAll('.tab-btn');const categories=document.querySelectorAll('.category');function showCategory(e){categories.forEach(t=>t.classList.remove('active')),tabButtons.forEach(t=>t.classList.remove('active')), "all"===e?categories.forEach(t=>t.classList.add('active')):document.getElementById(e+"-category").classList.add('active'),document.querySelector(`.tab-btn[data-category="${e}"]`).classList.add('active'),filterTables()}function filterTables(){const e=searchInput.value.toLowerCase(),t=document.querySelectorAll('.category.active table tbody');t.forEach(t=>{const a=t.querySelectorAll('tr');a.forEach(t=>{t.style.display=t.textContent.toLowerCase().includes(e)?"":"none"})})}tabButtons.forEach(e=>{e.addEventListener('click',()=>{showCategory(e.dataset.category)})}),searchInput.addEventListener('input',filterTables),showCategory('all');
+</script>
+</body>
+</html>
